@@ -139,7 +139,7 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
-.prettierrc
-.prettierignore
-package.json
-package-lock.json
+# .prettierrc
+# .prettierignore
+# package.json
+# package-lock.json
