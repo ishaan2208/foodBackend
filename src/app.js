@@ -24,4 +24,7 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/orders", orderRoutes);
 // app config
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 export default app;
