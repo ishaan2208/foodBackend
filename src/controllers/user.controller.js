@@ -44,6 +44,7 @@ export const login = asyncHandler(async (req, res) => {
     .cookie("accessToken", token, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
     })
     .json(new ApiResponse(200, { token }, "Login successful"));
 });
@@ -62,7 +63,7 @@ export const getCurrentUser = asyncHandler(async (req, res) => {
   }
   const decoded = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
   if (!decoded) {
-    throw new ApiError(401, "Unauthorized");
+    throw new ApiError(401, "token not valid");
   }
   const user = await User.findById(decoded._id).select("-password");
   res.status(200).json(new ApiResponse(200, user, "User found"));
