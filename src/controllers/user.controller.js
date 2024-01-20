@@ -64,6 +64,6 @@ export const getCurrentUser = asyncHandler(async (req, res) => {
   if (!decoded) {
     throw new ApiError(401, "Unauthorized");
   }
-  const user = await User.findById(decoded._id);
+  const user = await User.findById(decoded._id).select("-password");
   res.status(200).json(new ApiResponse(200, user, "User found"));
 });
