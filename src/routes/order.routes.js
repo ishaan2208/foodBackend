@@ -5,6 +5,7 @@ import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
-router.route("/").get(verifyJWT, getOrders).post(verifyJWT, createOrder);
+router.route("/").post(verifyJWT, createOrder);
+router.route("/all").post(verifyJWT, getOrders);
 
 export default router;
