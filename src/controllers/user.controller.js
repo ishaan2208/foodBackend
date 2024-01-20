@@ -42,7 +42,7 @@ export const login = asyncHandler(async (req, res) => {
   res
     .status(200)
     .cookie("accessToken", token, {
-      httpOnly: true,
+      // httpOnly: true,
       secure: true,
       sameSite: "none",
     })
